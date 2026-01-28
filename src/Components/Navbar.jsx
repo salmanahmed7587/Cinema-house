@@ -1,5 +1,5 @@
 import { useState } from "react";
-import n1 from "../assets/navimg/n1.jpg";
+import n1 from "../../assets/navimg/n1.jpg";
 
 import { useNavigate } from "react-router-dom";
 import { HiOutlineSearch } from "react-icons/hi";

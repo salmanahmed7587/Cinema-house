@@ -13,7 +13,7 @@ function Popular({ setSelectedMovie }) {
     queryKey: ["popular", page],
     queryFn: () =>
       fetch(
-        `https://api.themoviedb.org/3/movie/popular?api_key=a6aebbe96bd7c6b2d9c134582a712e90&page=${page}`
+        `https://api.themoviedb.org/3/movie/popular?api_key=${import.meta.env.VITE_TMDB_API_KEY}&page=${page}`,
       ).then((res) => res.json()),
   });
 
@@ -26,11 +26,11 @@ function Popular({ setSelectedMovie }) {
 
   if (sortBy === "date_desc") {
     movies = movies.sort(
-      (a, b) => new Date(b.release_date) - new Date(a.release_date)
+      (a, b) => new Date(b.release_date) - new Date(a.release_date),
     );
   } else if (sortBy === "date_asc") {
     movies = movies.sort(
-      (a, b) => new Date(a.release_date) - new Date(b.release_date)
+      (a, b) => new Date(a.release_date) - new Date(b.release_date),
     );
   } else if (sortBy === "popularity") {
     movies = movies.sort((a, b) => b.popularity - a.popularity);
@@ -170,7 +170,7 @@ function Popular({ setSelectedMovie }) {
             >
               {p}
             </button>
-          )
+          ),
         )}
 
         <button

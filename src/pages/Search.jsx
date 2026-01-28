@@ -13,7 +13,7 @@ function Search({ setSelectedMovie }) {
     queryKey: ["search", query],
     queryFn: () =>
       fetch(
-        `https://api.themoviedb.org/3/search/movie?api_key=a6aebbe96bd7c6b2d9c134582a712e90&query=${query}`
+        `https://api.themoviedb.org/3/search/movie?api_key=${import.meta.env.VITE_TMDB_API_KEY}&query=${query}`,
       ).then((res) => res.json()),
     enabled: query.length > 0,
   });
